@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <base href="/inscription-capsule/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Inscris ton logement – Appart Capsule</title>
+  <meta name="description" content="Inscris ton logement chez Appart Capsule en 2 minutes. Un conseiller te rappelle pour la suite : contrat, serrure, ménage, photos et mise en ligne.">
+  <meta name="theme-color" content="#161618">
+  <meta property="og:title" content="Inscris ton logement – Appart Capsule">
+  <meta property="og:description" content="2 minutes pour inscrire ton logement. Gratuit et sans engagement.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    html, body { margin: 0; height: 100%; background: #161618; }
+    #capsule-loader {
+      position: fixed; inset: 0; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 18px;
+      font-family: Impact, "Arial Black", sans-serif; color: #fff;
+      letter-spacing: .5px; font-size: 26px; transition: opacity .3s;
+    }
+    #capsule-loader span { color: #FF8A3D; }
+    #capsule-loader .bar { width: 160px; height: 6px; border-radius: 12px; background: #1F1F23; overflow: hidden; }
+    #capsule-loader .bar i {
+      display: block; width: 40%; height: 100%; border-radius: 12px;
+      background: linear-gradient(90deg, #FF8A3D, #FF2D7E);
+      animation: capsule-load 1s ease-in-out infinite alternate;
+    }
+    @keyframes capsule-load { from { transform: translateX(-10%); } to { transform: translateX(160%); } }
+    @media (prefers-reduced-motion: reduce) { #capsule-loader .bar i { animation: none; width: 100%; } }
+  </style>
+</head>
+<body>
+  <div id="capsule-loader" aria-label="Chargement">
+    <div>APPART <span>CAPSULE</span></div>
+    <div class="bar"><i></i></div>
+  </div>
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      var l = document.getElementById('capsule-loader');
+      if (l) { l.style.opacity = '0'; setTimeout(function () { l.remove(); }, 320); }
+    });
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
